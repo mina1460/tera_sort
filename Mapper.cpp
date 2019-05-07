@@ -79,7 +79,7 @@ for (uint64_t i = 0; i < sample_size; ++i)
 
 */
 //now I have my samples and need to sort them in order to get my cutpoints from the sorted samples array and pass them to the partioner
-   /*QuickSort<T> qs (sample);
+	/* QuickSort<T> qs (sample);
 
 
    qs.quickSort(0, sample_size-1);*/

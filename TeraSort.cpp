@@ -77,7 +77,7 @@ void TeraSort<T,S>::execute()
 
 //now I should calculate the Cutpoints so that they can be used in phase 2
         partitioner->calcCutpointsAverage(mappers);
-        cout<<"mina 8alt"<<endl;
+        
     
 
     //this would be resposnible for calling phase 2

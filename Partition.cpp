@@ -34,7 +34,9 @@ void Partition<T,S>::addItem(S * s)
 	//Do your implementation here
         mtx.lock();
         resize();
+        cout<<"abl data"<<endl;
         data[current] = *s;
+        cout<<"b3d data"<<endl;
         current++;
         mtx.unlock();
 }
