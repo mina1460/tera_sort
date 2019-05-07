@@ -79,10 +79,10 @@ for (uint64_t i = 0; i < sample_size; ++i)
 
 */
 //now I have my samples and need to sort them in order to get my cutpoints from the sorted samples array and pass them to the partioner
-	/* QuickSort<T> qs (sample);
+	QuickSort<T> qs (sample);
 
 
-   qs.quickSort(0, sample_size-1);*/
+   qs.quickSort(0, sample_size-1);
 
 
 
@@ -144,7 +144,6 @@ void Mapper<T,S>::waitForRunToFinish()
    // printf("waiting for thread number %s to finish executing\n","before");
     if(th->joinable()) cout<<"yes\n"; else cout<<"no\n";
     th->join();
-     printf("waiting for thread number %s to finish executing\n","after");
     
 
 }

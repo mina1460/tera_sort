@@ -34,9 +34,12 @@ void Partition<T,S>::addItem(S * s)
 	//Do your implementation here
         mtx.lock();
         resize();
-        cout<<"abl data"<<endl;
-        data[current] = *s;
-        cout<<"b3d data"<<endl;
+
+      data[current] =  *s; //this needs operator overloading to assign s to s as the compiler doesn't know how
+ 
+
+    
+    
         current++;
         mtx.unlock();
 }

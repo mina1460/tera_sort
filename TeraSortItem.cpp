@@ -17,6 +17,12 @@ TeraSortItem::TeraSortItem()
 {
     key_value=  0;
 }
+/*void teraitem_r::operator = (teraitem_r *s)
+{
+     memcpy(teraitem, *s,sizeof(teraitem_r));
+    
+
+}*/
 TeraSortItem::TeraSortItem (TeraSortItem & teraSortItem)
 {
     memcpy(teraitem,teraSortItem.teraitem,sizeof(teraitem_r));

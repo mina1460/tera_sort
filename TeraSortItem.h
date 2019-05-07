@@ -11,7 +11,11 @@ typedef struct
         uint8_t b2[4];
         uint8_t filler[48];
         uint8_t b3[4];
+     //   void operator = (teraitem_r *s);
 }teraitem_r;
+
+//void teraitem_r::operator = (teraitem_r *s);
+
 
 class TeraSortItem {
   private:

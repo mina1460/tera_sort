@@ -12,7 +12,7 @@ QuickSort<T>::QuickSort(T ** p_teraSortItem)
 template <class T>
 int64_t QuickSort<T>:: partition(int64_t l , int64_t r ){
     
-  /*  T* pivot = teraSortItem[r];
+   T* pivot = teraSortItem[r];
     int64_t i = (l-1);
     
     for(int64_t j=l; j<= r-1; j++){
@@ -28,9 +28,8 @@ int64_t QuickSort<T>:: partition(int64_t l , int64_t r ){
     }
     //std::swap(teraSortItem[i+1],teraSortItem[r]);
     teraSortItem[i+1]->swap(teraSortItem[r]);
-    return (i+1);*/
+    return (i+1);
     
-    cout<<"partition"<<endl;
 }
 
 
@@ -38,12 +37,12 @@ template <class T>
 void QuickSort<T>::quickSort( int64_t l, int64_t r){
     
     
-/*    if(l < r){
+  if(l < r){
         int64_t pi = partition(l,r);
         quickSort(l, pi-1);
         quickSort(pi+1, r);
-    }*/
-    cout<<"5alst"<<endl;
+    }
+
           
 }
 

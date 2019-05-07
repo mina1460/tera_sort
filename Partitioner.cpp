@@ -37,8 +37,10 @@ void Partitioner<T,S>::addItem(T * t)
     
     for ( uint16_t i = 0 ; i < partitions_count-1 ; i++)
     {
+    
         if (cutpoints[i]->getKeyValue() > t->key())
         {
+            
             partition_set = true;
             partitions[i]->addItem(t->getTeraItem());
             break;
