@@ -35,11 +35,7 @@ void Partition<T,S>::addItem(S * s)
         mtx.lock();
         resize();
 
-      data[current] =  *s; //this needs operator overloading to assign s to s as the compiler doesn't know how
- 
-
-    
-    
+      data[current] =  *s; 
         current++;
         mtx.unlock();
 }
@@ -49,14 +45,16 @@ void Partition<T,S>::sort()
     for ( uint64_t i = 0  ; i < partition_size ; i ++)
         dataWrapper[i] = new T (&data[i]);
    
-   QuickSort <T> quickSort2 (dataWrapper);
+   cout<<"one partition size is: "<<(unsigned)current<<endl;
+    QuickSort <T> quickSort2 (dataWrapper);
     quickSort2.quickSort(0, current-1); 
+    
 
 }
 template <class T, typename S>
 void Partition<T,S>::dump()
 {   
-    
+
    fwrite(data,sizeof(S),current,output);
 
 }

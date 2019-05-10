@@ -71,7 +71,6 @@ void TeraSort<T,S>::execute()
 	//Do your implementation here
     for (int i=0; i<mappers; i++)
     {
-          printf("waiting for thread number %d to finish executing\n",i+1);
         map_engines[i]->waitForRunToFinish(); 
     }
 

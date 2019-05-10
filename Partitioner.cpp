@@ -14,6 +14,7 @@ Partitioner<T,S>::Partitioner (FILE * f,uint16_t p_partitions_count,uint64_t p_p
         partitions[i] = new Partition <T,S> (f,p_partition_expected_size,1000);
     
     cutpoints = (T **) calloc (partitions_count-1,sizeof(T *));
+   
     for ( uint16_t i = 0 ; i < partitions_count-1 ; i++)
         cutpoints[i] = new T();
 }
@@ -27,7 +28,10 @@ template <class T, typename S>
 void Partitioner<T,S>::calcCutpointsAverage(uint16_t p_mappers_count)
 {
 	for(int i=0; i<partitions_count-1; i++)
-		cutpoints[i]->keyValueAverage(p_mappers_count);
+		
+        {
+            cutpoints[i]->keyValueAverage(p_mappers_count);
+        }
 }
 
 template <class T, typename S>

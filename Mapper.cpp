@@ -61,27 +61,9 @@ for (uint64_t i = 0; i < sample_size; ++i)
  }
 
 
-/* for (uint64_t i = 0 ; i < sample_size; i++)
-        {
-            index = rand() % read_count;
-           
-            sample[i] = dataWrapper[index];
-            
-
-            while(sample[i]->getB1()== 1)
-            {
-                index = rand() % read_count;
-                sample[i] = dataWrapper[index];
-            }
-        
-            sample[i]->setB1(1);
-        }
-
-*/
 //now I have my samples and need to sort them in order to get my cutpoints from the sorted samples array and pass them to the partioner
 
- QuickSort <T> qs (sample);
-
+  QuickSort <T> qs (sample);
 
    qs.quickSort(0, sample_size-1);
 
@@ -94,13 +76,13 @@ for (uint64_t i = 0; i < sample_size; ++i)
     
 uint64_t reducers_count = partitioner->getPartitionsCount();
 uint64_t increment = sample_size/(reducers_count-1);
-uint64_t add = increment;
+//uint64_t add = increment;
 
 
 for(uint64_t i=0; i<reducers_count-1; i++)
 {
-     partitioner->addCutpoint(i, sample[increment-10]);
-     increment += add-10;
+     partitioner->addCutpoint(i, sample[i*increment]);
+     //increment += add;
 }
    //we can also send the sample pointer to the terasort which would calculate cutpoints and pass them to the partitioner
 cout<<"phase 1 done"<<endl;

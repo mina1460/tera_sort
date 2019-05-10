@@ -9,6 +9,11 @@ QuickSort<T>::QuickSort(T ** p_teraSortItem)
     teraSortItem = p_teraSortItem;
 }
 
+
+
+// ================================geeks for geeks============================= 
+
+
 template <class T>
 int64_t QuickSort<T>:: partition(int64_t l , int64_t r ){
     
@@ -20,7 +25,6 @@ int64_t QuickSort<T>:: partition(int64_t l , int64_t r ){
         if(teraSortItem[j] <= pivot ){
             i++;
            // std::swap(teraSortItem[i],teraSortItem[j]);
-
             teraSortItem[j]->swap(teraSortItem[i]);
         }
         
@@ -31,14 +35,29 @@ int64_t QuickSort<T>:: partition(int64_t l , int64_t r ){
     return (i+1);
     
 }
-/*
 
 template <class T>
-T* QuickSort<T>:: partition(T** teraSortItem, int64_t left , int64_t right ){
+void QuickSort<T>::quickSort( int64_t l, int64_t r){
+    
+    
+  if(l < r){
+        int64_t pi = partition(l,r);
+        quickSort(l, pi-1);
+        quickSort(pi+1, r);
+    }
+        
+}
 
+
+/*
+template <class T>
+T* QuickSort<T>:: partition(int64_t left , int64_t right )
+{
+
+T** m = NULL;
 int64_t center=(left+right)/2;
 if(teraSortItem[center]<teraSortItem[left])
-    teraSortItem[left]->swap(teraSortItem[center]);
+    teraSortItem[center]->swap(teraSortItem[left]);
 if ( teraSortItem[right] < teraSortItem[left] )
     teraSortItem[right]->swap(teraSortItem[left]);
 if ( teraSortItem[right] < teraSortItem[center] )
@@ -52,9 +71,9 @@ return teraSortItem[right-1];
 
 
 template <class T>
- void quickSort (T** teraSortItem, int64_t left, int64_t right) 
+ void QuickSort<T>::quickSort (int64_t left, int64_t right) 
  {
-    const T & pivot = partition(teraSortItem, left,right);
+    T * pivot = partition(left,right);
     int64_t i = left, j = right-1;
 for (;;) 
 {
@@ -65,47 +84,25 @@ for (;;)
 }
 
 teraSortItem[i]->swap(teraSortItem[right-1]);
-    quickSort(teraSortItem, left,i-1);
 
-    quickSort(teraSortItem, i+1,right);
+    quickSort(left,i-1);
+    quickSort(i+1,right);
 }
-*/
+
 
 /*
 template <typename T>
 void quickSort (uint64_t list_size)
 {
-    QuickSort<T>::quickSort (teraSortItem, 0,list_size-1);
-}
-*/
-
-
-
-template <class T>
-void QuickSort<T>::quickSort( int64_t l, int64_t r){
-    
-    
-  if(l < r){
-        int64_t pi = partition(l,r);
-        quickSort(l, pi-1);
-        quickSort(pi+1, r);
-    }
-        
-}
-/*
-
-template <typename T>
-void quickSort (int64_t list_size)
-{
     QuickSort<T>::quickSort (0,list_size-1);
 }
-
 */
+
+
+
 template <class T>
 QuickSort<T>::~QuickSort()
-{
-
-}
+{}
 
 
 #endif

@@ -17,12 +17,7 @@ TeraSortItem::TeraSortItem()
 {
     key_value=  0;
 }
-/*void teraitem_r::operator = (teraitem_r *s)
-{
-     memcpy(teraitem, *s,sizeof(teraitem_r));
-    
 
-}*/
 TeraSortItem::TeraSortItem (TeraSortItem & teraSortItem)
 {
     memcpy(teraitem,teraSortItem.teraitem,sizeof(teraitem_r));
@@ -104,21 +99,21 @@ teraitem_r * TeraSortItem::getTeraItem ()
 {
     return teraitem;
 }
+
 void TeraSortItem::addToKeyValue(uint128_t p_key_value)
 {
     key_value += p_key_value;
 }
+
 uint128_t TeraSortItem::getKeyValue()
 {
     return key_value;
 }
+
 void TeraSortItem::keyValueAverage(uint16_t p_divisor)
 {
     key_value /= p_divisor;
 }
 
-
 TeraSortItem::~TeraSortItem()
-{
-    
-}
+{}
