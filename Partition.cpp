@@ -48,13 +48,17 @@ void Partition<T,S>::sort()
 {
     for ( uint64_t i = 0  ; i < partition_size ; i ++)
         dataWrapper[i] = new T (&data[i]);
-    QuickSort <T> quickSort (dataWrapper);
-    quickSort.quickSort(0,current-1);
+   
+   QuickSort <T> quickSort2 (dataWrapper);
+    quickSort2.quickSort(0, current-1); 
+
 }
 template <class T, typename S>
 void Partition<T,S>::dump()
-{
-    fwrite(data,sizeof(S),current,output);
+{   
+    
+   fwrite(data,sizeof(S),current,output);
+
 }
 template <class T, typename S>
 Partition<T,S>::~Partition ()

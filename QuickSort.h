@@ -6,10 +6,12 @@ template <class T>
 class QuickSort{
     private:
         T ** teraSortItem;
-        int64_t partition( int64_t l, int64_t r);
+       
     public:
         QuickSort(T ** p_teraSortItem);
-        void quickSort( int64_t l, int64_t r);
+        int64_t partition(int64_t l, int64_t r);
+        void quickSort(int64_t l, int64_t r);
+       // void quickSort (int64_t list_size);
         ~QuickSort();
 };
 

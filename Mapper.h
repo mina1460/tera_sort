@@ -18,7 +18,7 @@ class Mapper
 
         uint64_t read_start;
         uint64_t read_count;
-        uint64_t sample_size;
+        int64_t sample_size;
         std::thread * th;
         Partitioner<T,S> * partitioner;
         void phase1();
