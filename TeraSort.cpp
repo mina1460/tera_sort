@@ -93,7 +93,6 @@ void TeraSort<T,S>::execute()
              map_engines[x]->waitForRunToFinish();
         }
 
-    printf("phase 1 and 2 are now done\n");
 
 for ( uint16_t j = 0 ; j  < reducers; j++)
             {
@@ -107,7 +106,7 @@ for ( uint16_t j = 0 ; j  < reducers; j++)
 
  for ( uint16_t i = 0 ; i  < reducers; i++)
      partitioner->getPartition(i)->dump();
- cout<<"almafrod 3mlt dump\n";
+
 
 
 }

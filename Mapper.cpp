@@ -37,7 +37,7 @@ void Mapper<T,S>::phase1()
     
  
     //Do your implementation here
-    srand(time(NULL));
+   // srand(time(NULL)/*+rand()%sample_size*/) ;
     uint64_t index;
 
 /*
@@ -46,27 +46,30 @@ for (uint64_t i = 0; i < sample_size; ++i)
     sample[i] = new T();
 }
 */
+        int c=0;
  for (uint64_t i = 0; i < sample_size; ++i)
  {
     index = rand() % read_count;
      sample[i] = new T();
      sample[i] = dataWrapper[index];
+ 
+      
       while(sample[i]->getB1()== 1)
             {
+                c++;
                 index = rand() % read_count;
                 sample[i] = dataWrapper[index];
             }
-        
             sample[i]->setB1(1);
+            
  }
-
+ cout<<"in one map it generated used numbers "<<c<<" times\n";
 
 //now I have my samples and need to sort them in order to get my cutpoints from the sorted samples array and pass them to the partioner
 
   QuickSort <T> qs (sample);
 
-   qs.quickSort(0, sample_size-1);
-
+  qs.quickSort(0, sample_size-1);
 
 
    //now samples are sorted
@@ -75,12 +78,13 @@ for (uint64_t i = 0; i < sample_size; ++i)
 
     
 uint64_t reducers_count = partitioner->getPartitionsCount();
-uint64_t increment = sample_size/(reducers_count-1);
+
 //uint64_t add = increment;
 
-
+uint64_t increment;
 for(uint64_t i=0; i<reducers_count-1; i++)
 {
+     increment = sample_size/(reducers_count-1);
      partitioner->addCutpoint(i, sample[i*increment]);
      //increment += add;
 }
@@ -91,7 +95,7 @@ cout<<"phase 1 done"<<endl;
 template <class T, typename S>
 void Mapper<T,S>::phase2()
 {
-    printf ("\n \n \tStart Shuffling .....\n");
+    printf ("Start Shuffling .....\n");
     for ( uint64_t i = 0 ; i  < read_count ; i ++)
         partitioner->addItem(dataWrapper[i]);    
     printf ("Finished Shuffling .....\n");
@@ -125,7 +129,7 @@ template <class T, typename S>
 void Mapper<T,S>::waitForRunToFinish()
 {
    // printf("waiting for thread number %s to finish executing\n","before");
-    if(th->joinable()) cout<<"yes\n"; else cout<<"no\n";
+    if(!th->joinable()) cout<<"/t   No\n";
     th->join();
     
 

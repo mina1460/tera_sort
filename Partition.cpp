@@ -32,10 +32,10 @@ template <class T, typename S>
 void Partition<T,S>::addItem(S * s)
 {
 	//Do your implementation here
+
         mtx.lock();
         resize();
-
-      data[current] =  *s; 
+        data[current] =  *s; 
         current++;
         mtx.unlock();
 }
@@ -45,7 +45,8 @@ void Partition<T,S>::sort()
     for ( uint64_t i = 0  ; i < partition_size ; i ++)
         dataWrapper[i] = new T (&data[i]);
    
-   cout<<"one partition size is: "<<(unsigned)current<<endl;
+   cout<<"partition size is: "<<(unsigned)current<<endl;
+
     QuickSort <T> quickSort2 (dataWrapper);
     quickSort2.quickSort(0, current-1); 
     

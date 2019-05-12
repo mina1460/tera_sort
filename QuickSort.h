@@ -10,10 +10,14 @@ class QuickSort{
        
     public:
 
+        
         QuickSort(T ** p_teraSortItem);
-        int64_t partition(int64_t l, int64_t r);
+        
+        void quickSort(int64_t low, int64_t high);
+
+        //int64_t partition(int64_t l, int64_t r);
       //  T* partition(int64_t l, int64_t r);
-        void quickSort(int64_t l, int64_t r);
+        //void quickSort(int64_t l, int64_t r);
        // void quickSort (int64_t list_size);
         ~QuickSort();
 };
