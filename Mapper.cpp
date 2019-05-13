@@ -46,14 +46,17 @@ for (uint64_t i = 0; i < sample_size; ++i)
     sample[i] = new T();
 }
 */
-        int c=0;
+       
+       // int c=0;
+
  for (uint64_t i = 0; i < sample_size; ++i)
  {
     index = rand() % read_count;
-     sample[i] = new T();
+     // sample[i] = new T();
      sample[i] = dataWrapper[index];
  
       
+      /*
       while(sample[i]->getB1()== 1)
             {
                 c++;
@@ -61,9 +64,10 @@ for (uint64_t i = 0; i < sample_size; ++i)
                 sample[i] = dataWrapper[index];
             }
             sample[i]->setB1(1);
+        */
             
  }
- cout<<"in one map it generated used numbers "<<c<<" times\n";
+ // cout<<"in one map it generated used numbers "<<c<<" times\n";
 
 //now I have my samples and need to sort them in order to get my cutpoints from the sorted samples array and pass them to the partioner
 

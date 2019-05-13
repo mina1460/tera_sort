@@ -30,7 +30,7 @@ TeraSort<T,S>::TeraSort (char * p_input_file_name,char * p_output_file_name,
         uint64_t rem = records_count % mappers; //the remainder is the value which shall be passed to last thread more than the others.
         uint64_t start = records_count / mappers ; //the starting position for all threads
 //partitioner<T,S>::Partitioner (FILE * f,uint16_t p_partitions_count,uint64_t p_partition_expected_size)
-        uint64_t partition_expected_size = (file_byte_size/100) / reducers;
+        uint64_t partition_expected_size = records_count / reducers;
         partitioner = new Partitioner <T,S> (output, reducers, partition_expected_size);
 
         int i;

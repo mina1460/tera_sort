@@ -36,8 +36,11 @@ void Partition<T,S>::addItem(S * s)
         mtx.lock();
         resize();
         data[current] =  *s; 
+        //newly added
+        dataWrapper[current] = new T (&data[current]);
         current++;
         mtx.unlock();
+
 }
 template <class T, typename S>
 void Partition<T,S>::sort()
