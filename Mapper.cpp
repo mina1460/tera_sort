@@ -47,7 +47,7 @@ for (uint64_t i = 0; i < sample_size; ++i)
 }
 */
        
-       // int c=0;
+       int c=0;
 
  for (uint64_t i = 0; i < sample_size; ++i)
  {
@@ -64,7 +64,8 @@ for (uint64_t i = 0; i < sample_size; ++i)
                 sample[i] = dataWrapper[index];
             }
             sample[i]->setB1(1);
-        */
+            */
+        
             
  }
  // cout<<"in one map it generated used numbers "<<c<<" times\n";

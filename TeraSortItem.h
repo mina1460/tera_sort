@@ -45,7 +45,7 @@ class TeraSortItem {
 
     void setB1(uint8_t x)
 {
-    teraitem->b1[0]=1;
+    teraitem->b1[0]=x;
 }
    uint8_t getB1()
 {
